@@ -1,10 +1,12 @@
-import React from "react";
+
+import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from "react-native";
 import { useRouter } from "expo-router";
 
 export default function App() {
   const router = useRouter(); 
-
+  const[name, setName]= useState("")
+ const[password, setPassword]= useState("")
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Login</Text>
@@ -13,12 +15,16 @@ export default function App() {
         style={styles.input}
         placeholder="Enter email or phone no"
         placeholderTextColor="#999"
+        onChangeText={(text)=>setName(text)}
+        value={name}
       />
       <TextInput
         style={styles.input}
         placeholder="Password"
         secureTextEntry={true}
         placeholderTextColor="#999"
+        onChangeText={(text)=>setPassword(text)}
+        value={password}
       />
 
       <TouchableOpacity>

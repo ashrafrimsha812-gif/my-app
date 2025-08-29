@@ -12,11 +12,16 @@ export default function Information() {
   const router = useRouter();
   const [gender, setGender] = useState("");
   const [age, setAge] = useState("");
-
+   const[name, setName]= useState("");
+   const[nationality, setNationality]= useState("");
+    const[education, setEducation]= useState("");
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Emotion Detection Survey</Text>
-      <TextInput placeholder="Enter your name" style={styles.input} />
+      <TextInput placeholder="Enter your name" style={styles.input}
+       onChangeText={(text)=>setName(text)}
+       value={name}
+      />
       <Text style={styles.label}>Gender:</Text>
       <View style={styles.optionRow}>
         <TouchableOpacity
@@ -44,8 +49,14 @@ export default function Information() {
           </TouchableOpacity>
         ))}
       </View>
-      <TextInput placeholder="Nationality" style={styles.input} />
-      <TextInput placeholder="Education" style={styles.input} />
+      <TextInput placeholder="Nationality" style={styles.input} 
+      onChangeText={(text)=>setNationality(text)}
+      value={nationality}
+      />
+      <TextInput placeholder="Education" style={styles.input}
+      onChangeText={(text)=>setEducation(text)}
+      value={education}
+      />
       <View style={styles.startWrapper}>
         <TouchableOpacity
           style={styles.startButton}

@@ -31,44 +31,44 @@ export default function EditProfilePage() {
         </TouchableOpacity>
       </View>
 
-      <TextInput
+      <TextInput 
         style={styles.input}
         placeholder="Full Name"
         value={name}
-        onChangeText={setName}
+        onChangeText={(text)=>setName(text)}
       />
       <TextInput
         style={styles.input}
         placeholder="Username"
         value={username}
-        onChangeText={setUsername}
+        onChangeText={(text)=>setUsername(text)}
       />
       <TextInput
         style={styles.input}
         placeholder="Email"
         value={email}
         keyboardType="email-address"
-        onChangeText={setEmail}
+        onChangeText={(e)=>setEmail(e)}
       />
       <TextInput
         style={styles.input}
         placeholder="Phone Number"
         value={phone}
         keyboardType="phone-pad"
-        onChangeText={setPhone}
+        onChangeText={(numeric)=>setPhone(numeric)}
       />
       <TextInput
         style={styles.input}
         placeholder="Date of Birth"
         value={dob}
-        onChangeText={setDob}
+        onChangeText={(text)=>setDob(text)}
       />
       <TextInput
         style={[styles.input, { height: 100 }]}
         placeholder="Bio"
         value={bio}
         multiline
-        onChangeText={setBio}
+        onChangeText={(text)=>setBio(text)}
       />
       
        <TouchableOpacity style={styles.button} >

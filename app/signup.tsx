@@ -18,7 +18,7 @@ export default function SignupScreen() {
         placeholder="Email Address or Phone No"
         placeholderTextColor="#999"
         value={email}
-        onChangeText={setEmail}
+        onChangeText={(text)=>setEmail(text)}
       />
 
       <TextInput
@@ -27,7 +27,7 @@ export default function SignupScreen() {
         placeholderTextColor="#999"
         secureTextEntry
         value={password}
-        onChangeText={setPassword}
+        onChangeText={(text)=>setPassword(text)}
       />
 
       <TextInput
@@ -36,7 +36,7 @@ export default function SignupScreen() {
         placeholderTextColor="#999"
         secureTextEntry
         value={confirmPassword}
-        onChangeText={setConfirmPassword}
+        onChangeText={(text)=>setConfirmPassword(text)}
       />
       <TouchableOpacity
         style={styles.button}
