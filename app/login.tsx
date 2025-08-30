@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from "react-native";
 import { useRouter } from "expo-router";
 
-export default function App() {
+export default function loginscreen() {
   const router = useRouter(); 
   const[name, setName]= useState("")
  const[password, setPassword]= useState("")

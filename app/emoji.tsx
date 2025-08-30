@@ -9,11 +9,14 @@ import {
 } from "react-native";
 import { useRouter } from "expo-router";
 
+
 export default function EmojiPage() {
   const router = useRouter();
   const [selected, setSelected] = useState<string | null>(null);
   const [customEmoji, setCustomEmoji] = useState("");
   const inputRef = useRef<TextInput>(null); 
+ 
+
   const emojis = [
     { id: "1", emoji: "😔", label: "Sad" },
     { id: "2", emoji: "😁", label: "Happy" },
@@ -58,6 +61,9 @@ export default function EmojiPage() {
 
   return (
     <View style={styles.container}>
+     
+
+
       <TouchableOpacity
         style={styles.profileButton}
         onPress={() => router.push("/profile")}
@@ -96,6 +102,7 @@ export default function EmojiPage() {
         >
           <Text style={styles.nextButtonText}>Next</Text>
         </TouchableOpacity>
+       
       </View>
       
     </View>
@@ -161,6 +168,7 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 100,
     borderRadius: 20,
+    marginBottom:10,
   },
   nextButtonText: {
     color: "white",
@@ -171,6 +179,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 15,
     right: 20,
+   
   },
   skipText: {
     fontSize: 16,
@@ -185,5 +194,5 @@ const styles = StyleSheet.create({
   profileIcon: {
     fontSize: 22,
   },
- 
+
 });
