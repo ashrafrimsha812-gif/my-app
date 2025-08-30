@@ -11,7 +11,7 @@ export default function Home() {
         style={styles.image}
       />
       <Text style={styles.title}>Emotion Tracking</Text>
-      <Text style={styles.subtitle}>Welcome to my app!</Text>
+      <Text style={styles.subtitle}>Welcome to app!</Text>
       <TouchableOpacity
         style={styles.button}
         onPress={() => router.push("/disclaimer?next=login")}

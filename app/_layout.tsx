@@ -20,7 +20,7 @@ export default function RootLayout() {
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
         {/* Screens automatically map to files inside app/ */}
-        <Stack.Screen name="home" options={{ title: "Home" }} />
+        <Stack.Screen name="index" options={{ title: "/" }} />
         <Stack.Screen name="login" options={{ title: "Login" }} />
         <Stack.Screen name="signup" options={{ title: "Signup" }} />
         <Stack.Screen name="emoji" options={{ title: "Emoji" }} />
