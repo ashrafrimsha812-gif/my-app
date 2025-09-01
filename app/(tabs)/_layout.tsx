@@ -1,11 +1,20 @@
 import { Tabs } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
+import { Stack } from "expo-router";
 
 export default function TabsLayout() {
   return (
     <Tabs screenOptions={{ headerShown: false }}>
       <Tabs.Screen
-        name="index"
+  name="index"
+  options={{
+    href: null,
+     tabBarStyle: { display: "none" },
+    
+  }}
+  />
+      <Tabs.Screen
+        name="emoji"
         options={{
           title: "Home",
           tabBarIcon: ({ color, size }) => (

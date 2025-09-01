@@ -77,8 +77,8 @@ export default function EmojiPage() {
         <Text style={styles.skipText}>Skip</Text>
       </TouchableOpacity>
 
-      <Text style={styles.title}>Quick Mood Logging</Text>
-      <Text style={styles.title}>With Emoji</Text>
+      <Text style={styles.title}>Quick Mood Logging With Emoji</Text>
+     
 
       <Text style={styles.subtitle}>How are you feeling right now?</Text>
       <FlatList
@@ -112,19 +112,21 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fdecee",
+    justifyContent: "center",
     alignItems: "center",
     padding: 20,
   },
   title: {
-    fontSize: 20,
+    fontSize: 25,
     fontWeight: "bold",
-    marginTop: 10,
+    marginTop: 70,
     color: "#d64b7d",
     textAlign: "center",
+    
   },
   subtitle: {
-    fontSize: 10,
-    marginTop: 8,
+    fontSize: 12,
+    marginTop: 40,
     marginBottom: 15,
     color: "#333",
     textAlign: "center",
@@ -158,7 +160,7 @@ const styles = StyleSheet.create({
   },
   nextButtonWrapper: {
     position: "absolute",
-    bottom: 90,
+    bottom: 20,
     left: 0,
     right: 0,
     alignItems: "center",
@@ -177,7 +179,7 @@ const styles = StyleSheet.create({
   },
   skipButton: {
     position: "absolute",
-    top: 15,
+    top: 50,
     right: 20,
    
   },
@@ -188,7 +190,7 @@ const styles = StyleSheet.create({
   },
   profileButton: {
     position: "absolute",
-    top: 15,
+    top: 50,
     left: 20,
   },
   profileIcon: {
