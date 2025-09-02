@@ -1,7 +1,5 @@
 import { Tabs } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
-import { Stack } from "expo-router";
-
 export default function TabsLayout() {
   return (
     <Tabs screenOptions={{ headerShown: false }}>
@@ -10,7 +8,6 @@ export default function TabsLayout() {
   options={{
     href: null,
      tabBarStyle: { display: "none" },
-    
   }}
   />
       <Tabs.Screen
@@ -22,7 +19,6 @@ export default function TabsLayout() {
           ),
         }}
       />
-
       <Tabs.Screen
         name="doctors"
         options={{
@@ -32,7 +28,6 @@ export default function TabsLayout() {
           ),
         }}
       />
-
       <Tabs.Screen
         name="settings"
         options={{
@@ -42,7 +37,6 @@ export default function TabsLayout() {
           ),
         }}
       />
-
       <Tabs.Screen
         name="history"
         options={{
@@ -52,7 +46,6 @@ export default function TabsLayout() {
           ),
         }}
       />
-
       <Tabs.Screen
         name="journaling"
         options={{

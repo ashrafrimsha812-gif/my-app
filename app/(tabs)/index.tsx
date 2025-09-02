@@ -1,45 +1,60 @@
-import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
-import { useRouter } from "expo-router";
+import { View, Text, TouchableOpacity, ScrollView, ImageBackground } from 'react-native'
+import React from 'react'
+import { Ionicons } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
 
-export default function Home() {
+const Splash = () => {  
   const router = useRouter();
 
   return (
-    <View style={[styles.container, { backgroundColor: "#fdecee" }]}>
-      <Image
-        source={require("../../assets/images/home.png")}
-        style={styles.image}
-      />
-      <Text style={styles.title}>Emotion Tracking</Text>
-      <Text style={styles.subtitle}>Welcome to app!</Text>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => router.push("/disclaimer?next=login")}
-      >
-        <Text style={styles.buttonText}>Login</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => router.push("/disclaimer?next=signup")}
-      >
-        <Text style={styles.buttonText}>Sign Up</Text>
-      </TouchableOpacity>
-    </View>
-  );
+    <ImageBackground  
+      source={require("../../assets/images/home.png")} 
+      style={{ flex: 1, width: "100%", height: 500 ,marginTop:70}} 
+  
+    >
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+      
+        <Text style={{ fontWeight: 'bold', fontSize: 30,  marginBottom: 40,textAlign:"center" ,color:"#d64b7d"}}>
+          Emotion Tracker
+        </Text>
+         
+       
+        <TouchableOpacity
+          style={{
+            backgroundColor: "#d64b7d",
+            borderRadius: 10,
+            width: "60%",
+            height: 50,
+            alignSelf: 'center',
+            marginTop: 490,
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+          onPress={() => router.push("/home")}
+        >
+          <View style={{
+            backgroundColor: "#d64b7d",
+            width: 50,
+            height: 50,
+            borderRadius: 7,
+            alignItems: 'center',
+            justifyContent: 'center',
+            
+          }}>
+            <Ionicons name="chevron-forward" size={20} color="#fff" />
+          </View>
+          <Text style={{
+            fontWeight: 'bold',
+            fontSize: 20,
+            color: "#fff"
+          }}>
+            GET STARTED
+          </Text>
+        </TouchableOpacity>
+      </ScrollView>
+    </ImageBackground>
+  )
 }
 
-const styles = StyleSheet.create({
-  container: { flex: 1, alignItems: "center", justifyContent: "center" },
-  image: { width: 120, height: 120, marginBottom: 20, borderRadius: 60 },
-  title: { fontSize: 30, fontWeight: "bold", marginBottom: 10 },
-  subtitle: { fontSize: 16, marginBottom: 30 },
-  button: {
-    padding: 15,
-    backgroundColor: "#c94f7c",
-    margin: 10,
-    borderRadius: 8,
-    width: 200,
-    alignItems: "center",
-  },
-  buttonText: { color: "#fff", fontSize: 16 },
-});
+export default Splash;
