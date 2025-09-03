@@ -8,21 +8,18 @@ const Home = () => {
   return (
     <View style={{ flex: 1, backgroundColor:"#fdecee"  }}>
  
-  <ImageBackground source={require("../assets/images/back.png")}
- style={{ width: "100%", height: 420,marginBottom:50 }}>
-     resizeMode="cover"
-  
-
-
-
-        <Text style={{ fontWeight: 'bold', fontSize: 29,  marginTop: 80, textAlign: 'center',color:"#d64b7d"}}>
+  <ImageBackground source={require("../assets/images/pic.jpg")}
+      style={{ width: "100%", height: 400,marginBottom:50 }}
+      resizeMode="cover"
+ >
+        <Text style={{ fontWeight: 'bold', fontSize: 29,  marginTop: 80, textAlign: 'center',color:"#ec407fff"}}>
          Emotion Tracking
         </Text>
-          <Text style={{ fontSize: 18, marginTop: 10, color:"#d64b7d" ,textAlign: 'center' }}>
+          <Text style={{ fontSize: 18, marginTop: 10, color:"#ee216cff" ,textAlign: 'center' }}>
           Welcome to App!
         </Text>
       
-        <Text style={{ fontWeight: 'bold', fontSize: 25, textAlign: 'center', marginTop: 300 }}>
+        <Text style={{ fontWeight: 'bold', fontSize: 25, textAlign: 'center', marginTop: 300 , color:"#ee216cff"}}>
           Sign In As
         </Text>
 
@@ -57,7 +54,7 @@ const Home = () => {
             marginLeft: "30%",
             marginTop: 18,
           }}
-          onPress={() => router.push("/login")}  
+        onPress={() => router.push("/login")}  
         >
           <Text style={{ fontSize: 17, fontFamily: 'Times New Roman', color: 'white' }}>
             Doctor
