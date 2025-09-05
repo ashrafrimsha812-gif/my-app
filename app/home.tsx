@@ -2,6 +2,8 @@ import { View, Text, ImageBackground, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { useRouter } from 'expo-router'
 
+
+
 const Home = () => {
   const router = useRouter();
 
@@ -54,7 +56,7 @@ const Home = () => {
             marginLeft: "30%",
             marginTop: 18,
           }}
-        onPress={() => router.push("/login")}  
+        onPress={() => router.push("/doctor/login")}  
         >
           <Text style={{ fontSize: 17, fontFamily: 'Times New Roman', color: 'white' }}>
             Doctor

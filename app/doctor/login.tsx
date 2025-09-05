@@ -23,7 +23,7 @@ export default function App() {
 
       <TouchableOpacity
         style={styles.forgotBtn}
-        onPress={() => router.push("/ForgotPassword")}  
+        onPress={() => router.push("/doctor/forgotpassword")}  
       >
         <Text style={{ color: "#c94f7c", fontWeight: "600",alignContent:"center",justifyContent:"center"  }}>Forgot Password?</Text>
       </TouchableOpacity>
@@ -32,7 +32,7 @@ export default function App() {
 
       <TouchableOpacity style={styles.googleButton}>
         <Image
-          source={require("../assets/images/google.png")}
+          source={require("../../assets/images/google.png")}
           style={{ width: 20, height: 20 }}
         />
 
@@ -40,7 +40,7 @@ export default function App() {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.loginButton}
-        onPress={() => router.push("/emoji")}
+        onPress={() => router.push("/doctor/dashboard")}
       >
         <Text style={styles.loginText}>Login</Text>
       </TouchableOpacity>
@@ -49,7 +49,7 @@ export default function App() {
         Not a member?{" "}
         <Text
           style={styles.signupNow}
-          onPress={() => router.push("/signup")}
+          onPress={() => router.push("/doctor/Signup")}
         >
           Signup now
         </Text>

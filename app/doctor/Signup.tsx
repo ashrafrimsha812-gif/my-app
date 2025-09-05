@@ -42,12 +42,12 @@ export default function SignupScreen() {
         style={styles.button}
         onPress={() => {
           console.log("Signup pressed");
-           router.push("/emoji");
+           router.push("/doctor/dashboard");
         }}
       >
         <Text style={styles.buttonText}>Signup</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => router.push("/login")}>
+      <TouchableOpacity onPress={() => router.push("/doctor/login")}>
         <Text style={styles.linkText}>Already have an account? Login</Text>
       </TouchableOpacity>
     </View>
