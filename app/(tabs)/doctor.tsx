@@ -15,7 +15,7 @@ type Doctor = {
   name: string;
   specialty: string;
   experience: string;
-  profilePic?: string; // optional
+  profilePic?: string; 
 };
 
 type Appointment = {
@@ -41,12 +41,12 @@ export default function DoctorsScreen() {
     const { id, name, specialty, experience, profilePic } = doctor;
 
     const handleAppointment = () => {
-      // Navigate to appointment screen with query param
+     
       router.push(`/appointment?doctorId=${id}`);
     };
 
     const handleChat = () => {
-      // Navigate to chat screen with query params
+     
       router.push(`/chat?doctorId=${id}&doctorName=${encodeURIComponent(name)}`);
     };
 

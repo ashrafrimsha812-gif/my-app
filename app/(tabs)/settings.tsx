@@ -64,6 +64,11 @@ export default function SettingsScreen() {
           <Text style={styles.itemText}>Privacy Policy</Text>
         </View>
       </TouchableOpacity>
+      <TouchableOpacity >
+        <View style={styles.item}>
+          <Text style={styles.itemText}>Logout</Text>
+        </View>
+      </TouchableOpacity>
     </ScrollView>
   );
 }
@@ -109,6 +114,7 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     borderBottomWidth: 1,
     borderBottomColor: "#eee",
+    marginBottom:10
   },
   itemRow: {
     flexDirection: "row",
