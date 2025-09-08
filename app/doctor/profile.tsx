@@ -11,17 +11,17 @@ const [about, setAbout] = useState("Dr. Ali Khan is a highly experienced cardiol
   return (
     <View style={{ flex: 1, backgroundColor: "#fdecee" }}>
       <ScrollView style={styles.container}>
-        {/* Header */}
+        
         <View style={styles.header}>
           <Image
             source={require("../../assets/images/profile.png")}
             style={styles.profileImage}
           />
           <Text style={styles.name}>Dr. Ali Khan</Text>
-          <Text style={styles.specialization}>Cardiologist</Text>
+          <Text style={styles.specialization}>Psychologist</Text>
         </View>
 
-        {/* Contact Info */}
+       
         <View style={styles.card}>
           <Text style={styles.sectionTitle}>Contact Information</Text>
 
@@ -41,22 +41,21 @@ const [about, setAbout] = useState("Dr. Ali Khan is a highly experienced cardiol
           </View>
         </View>
 
-        {/* Experience */}
         <View style={styles.card}>
           <Text style={styles.sectionTitle}>Experience</Text>
-          <Text style={styles.infoText}>10+ years in Cardiology</Text>
+          <Text style={styles.infoText}>10+ years in pshchology</Text>
           <Text style={styles.infoText}>Worked at City Hospital</Text>
         </View>
 
-        {/* About */}
+      
         <View style={styles.card}>
           <Text style={styles.sectionTitle}>About</Text>
           <Text style={styles.infoText}>
-            Dr. Ali Khan is a highly experienced cardiologist with expertise in heart-related diseases and patient care.
+            Dr. Ali Khan is a highly experienced psychologist with expertise in brain-related diseases and patient care.
           </Text>
         </View>
 
-        {/* Edit Button */}
+      
        <TouchableOpacity 
   style={styles.button} 
   onPress={() => router.push("/doctor/editProfile")}

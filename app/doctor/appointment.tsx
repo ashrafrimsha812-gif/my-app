@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, FlatList, TouchableOpacity, Alert } from "react
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 
-// Appointment type
+
 type Appointment = {
   id: string;
   patientName: string;
@@ -12,7 +12,6 @@ type Appointment = {
   status: string;
 };
 
-// Dummy data (appointments list)
 const initialAppointments: Appointment[] = [
   {
     id: "1",
@@ -26,7 +25,7 @@ const initialAppointments: Appointment[] = [
     patientName: "Sara Ahmed",
     date: "Sep 11, 2025",
     time: "02:30 PM",
-    status: "Pending",
+    status: "Confirmed",
   },
   {
     id: "3",
@@ -41,7 +40,7 @@ export default function Appointments() {
   const router = useRouter();
   const [appointments, setAppointments] = useState(initialAppointments);
 
-  // Cancel function
+ 
   const handleCancel = (id: string) => {
     Alert.alert("Cancel Appointment", "Are you sure you want to cancel this appointment?", [
       { text: "No" },
@@ -58,7 +57,7 @@ export default function Appointments() {
     ]);
   };
 
-  // Render appointment
+  
   const renderAppointment = ({ item }: { item: Appointment }) => (
     <View style={styles.card}>
       <View style={styles.cardHeader}>
@@ -83,7 +82,7 @@ export default function Appointments() {
         {item.status}
       </Text>
 
-      {/* Cancel Button (sirf tab dikhega jab appointment Cancelled na ho) */}
+     
       {item.status !== "Cancelled" && (
         <TouchableOpacity
           style={styles.cancelBtn}
@@ -97,7 +96,7 @@ export default function Appointments() {
 
   return (
     <View style={styles.container}>
-      {/* Header */}
+      
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()}>
           <Ionicons name="arrow-back" size={24} color="#333" />
@@ -105,7 +104,7 @@ export default function Appointments() {
         <Text style={styles.headerText}>Upcoming Appointments</Text>
       </View>
 
-      {/* Appointment List */}
+     
       <FlatList
         data={appointments}
         renderItem={renderAppointment}
@@ -116,7 +115,7 @@ export default function Appointments() {
   );
 }
 
-// 🎨 Styles
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,

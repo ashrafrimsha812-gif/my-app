@@ -15,13 +15,13 @@ import { useRouter } from "expo-router";
 export default function EditProfile() {
   const router = useRouter();
   const [name, setName] = useState("Dr. Ali Khan");
-  const [specialization, setSpecialization] = useState("Cardiologist");
+  const [specialization, setSpecialization] = useState("Psychologist");
   const [email, setEmail] = useState("ali.khan@example.com");
   const [phone, setPhone] = useState("+92 300 1234567");
   const [location, setLocation] = useState("Lahore, Pakistan");
-  const [experience, setExperience] = useState("10+ years in Cardiology");
+  const [experience, setExperience] = useState("10+ years in Psychology");
   const [about, setAbout] = useState(
-    "Dr. Ali Khan is a highly experienced cardiologist with expertise in heart-related diseases and patient care."
+    "Dr. Ali Khan is a highly experienced psychologist with expertise in brain-related diseases and patient care."
   );
 
   const handleSave = () => {

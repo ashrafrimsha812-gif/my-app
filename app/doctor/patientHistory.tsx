@@ -22,16 +22,16 @@ const historyData: PatientHistoryItem[] = [
   {
     id: "2",
     patientName: "Sara Ahmed",
-    reason: "Flu & Fever",
+    reason: "Headache",
     date: "Sep 11, 2025",
     notes: "Prescribed medication and rest for 5 days.",
   },
   {
     id: "3",
     patientName: "Usman Malik",
-    reason: "Back Pain",
+    reason: "Brain Pain",
     date: "Sep 12, 2025",
-    notes: "Recommended physiotherapy sessions.",
+    notes: "Recommended Psychiatrist sessions.",
   },
 ];
 
@@ -53,21 +53,21 @@ export default function PatientHistory() {
   return (
     <View style={styles.container}>
      
-      <ScrollView style={{ flex: 1 }}>
-        <View style={styles.header}>
-          <TouchableOpacity onPress={() => router.back()}>
-            <Ionicons name="arrow-back" size={24} color="#333" />
-          </TouchableOpacity>
-          <Text style={styles.headerText}>Patient History</Text>
-        </View>
+      <FlatList
+  data={historyData}
+  renderItem={renderHistoryItem}
+  keyExtractor={(item) => item.id}
+  contentContainerStyle={{ paddingBottom: 120 }}
+  ListHeaderComponent={
+    <View style={styles.header}>
+      <TouchableOpacity onPress={() => router.back()}>
+        <Ionicons name="arrow-back" size={24} color="#333" />
+      </TouchableOpacity>
+      <Text style={styles.headerText}>Patient History</Text>
+    </View>
+  }
+/>
 
-        <FlatList
-          data={historyData}
-          renderItem={renderHistoryItem}
-          keyExtractor={(item) => item.id}
-          contentContainerStyle={{ paddingBottom: 120 }} 
-        />
-      </ScrollView>
 
      
       <View style={styles.bottomNav}>
