@@ -60,7 +60,7 @@ export default function Information() {
       <View style={styles.startWrapper}>
         <TouchableOpacity
           style={styles.startButton}
-          onPress={() => router.push("/survey")}
+          onPress={() => router.push("/user/survey")}
         >
           <Text style={styles.startText}>Start Survey</Text>
         </TouchableOpacity>

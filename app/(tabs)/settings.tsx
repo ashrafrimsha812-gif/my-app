@@ -21,13 +21,13 @@ export default function SettingsScreen() {
 
       <Text style={styles.sectionTitle}>Account Settings</Text>
 
-      <TouchableOpacity onPress={() => router.push("/profile")}>
+      <TouchableOpacity onPress={() => router.push("/user/profile")}>
         <View style={styles.item}>
           <Text style={styles.itemText}>Edit Profile</Text>
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => router.push("/change password")}>
+      <TouchableOpacity onPress={() => router.push("/user/change password")}>
         <View style={styles.item}>
           <Text style={styles.itemText}>Change Password</Text>
         </View>
@@ -53,13 +53,13 @@ export default function SettingsScreen() {
 
       <Text style={styles.sectionTitle}>More</Text>
 
-      <TouchableOpacity onPress={() => router.push("/about us")}>
+      <TouchableOpacity onPress={() => router.push("/user/about us")}>
         <View style={styles.item}>
           <Text style={styles.itemText}>About Us</Text>
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => router.push("/Privacy Policy")}>
+      <TouchableOpacity onPress={() => router.push("/user/Privacy Policy")}>
         <View style={styles.item}>
           <Text style={styles.itemText}>Privacy Policy</Text>
         </View>

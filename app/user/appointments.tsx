@@ -33,7 +33,7 @@ export default function BookAppointment() {
       
         <View style={styles.doctorCard}>
           <Image
-           source={require("../assets/images/profile.png")}
+           source={require("../../assets/images/profile.png")}
           style={styles.profileImage}
           />
           <View>

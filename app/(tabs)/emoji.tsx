@@ -66,13 +66,13 @@ export default function EmojiPage() {
 
       <TouchableOpacity
         style={styles.profileButton}
-        onPress={() => router.push("/profile")}
+        onPress={() => router.push("/user/profile")}
       >
         <Text style={styles.profileIcon}>👤</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.skipButton}
-        onPress={() => router.push("/information")}
+        onPress={() => router.push("/user/information")}
       >
         <Text style={styles.skipText}>Skip</Text>
       </TouchableOpacity>
@@ -98,7 +98,7 @@ export default function EmojiPage() {
       <View style={styles.nextButtonWrapper}>
         <TouchableOpacity
           style={styles.nextButton}
-          onPress={() => router.push("/information")}
+          onPress={() => router.push("/user/information")}
         >
           <Text style={styles.nextButtonText}>Next</Text>
         </TouchableOpacity>

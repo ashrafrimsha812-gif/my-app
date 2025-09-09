@@ -43,11 +43,11 @@ export default function Disclaimer() {
       <TouchableOpacity
         onPress={() => {
           if (next === "login") {
-            router.push("/login");
+            router.push("/user/login");
           } else if (next === "signup") {
-            router.push("/signup");
+            router.push("/user/signup");
           } else {
-            router.push("/login"); 
+            router.push("/user/login"); 
           }
         }}
         style={{

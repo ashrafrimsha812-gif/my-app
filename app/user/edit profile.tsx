@@ -23,7 +23,7 @@ export default function EditProfilePage() {
       <Text style={styles.title}>Edit Profile</Text>
       <View style={styles.imageContainer}>
         <Image
-          source={require("../assets/images/profile.png")}
+          source={require("../../assets/images/profile.png")}
           style={styles.profileImage}
         />
         <TouchableOpacity style={styles.changePicButton}>

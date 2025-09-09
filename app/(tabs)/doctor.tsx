@@ -42,12 +42,12 @@ export default function DoctorsScreen() {
 
     const handleAppointment = () => {
      
-      router.push(`/appointment?doctorId=${id}`);
+      router.push(`/user/appointments?doctorId=${id}`);
     };
 
     const handleChat = () => {
      
-      router.push(`/chat?doctorId=${id}&doctorName=${encodeURIComponent(name)}`);
+      router.push(`/user/chat?doctorId=${id}&doctorName=${encodeURIComponent(name)}`);
     };
 
     return (

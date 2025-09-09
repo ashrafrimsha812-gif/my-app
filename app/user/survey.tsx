@@ -78,7 +78,7 @@ export default function Survey() {
         ))}
        <TouchableOpacity
   style={styles.button}
-  onPress={() => router.push("/results")}
+  onPress={() => router.push("/user/results")}
 >
   <Text style={styles.buttonText}>Submit</Text>
 </TouchableOpacity>

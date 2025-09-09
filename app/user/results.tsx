@@ -28,7 +28,7 @@ export default function ResultsPage() {
 
         <TouchableOpacity
           style={styles.button}
-          onPress={() => router.push("/survey")}
+          onPress={() => router.push("/user/survey")}
         >
           <Text style={styles.buttonText}>Restart Survey</Text>
         </TouchableOpacity>

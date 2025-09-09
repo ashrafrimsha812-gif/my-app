@@ -46,7 +46,7 @@ const Password = () => {
       </TouchableOpacity>
 
       {/* Back to Login button */}
-      <TouchableOpacity style={{ marginTop: 20 }} onPress={() => router.replace("/login")}>
+      <TouchableOpacity style={{ marginTop: 20 }} onPress={() => router.replace("/user/login")}>
         <Text style={{ color: "#0f0f0fff", textAlign: "center" }}>Back to Login</Text>
       </TouchableOpacity>
     </View>

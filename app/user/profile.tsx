@@ -7,7 +7,7 @@ export default function ProfilePage() {
     <View style={styles.container}>
           <Text style={styles.title}>Profile</Text>
       <Image
-        source={require("../assets/images/profile.png")}
+        source={require("../../assets/images/profile.png")}
         style={styles.profileImage}
       />
      
@@ -16,19 +16,19 @@ export default function ProfilePage() {
 
      
       <TouchableOpacity style={styles.button}
-       onPress={() => router.push("/edit profile")}
+       onPress={() => router.push("/user/edit profile")}
       >
         <Text style={styles.buttonText}>Edit Profile</Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.button}
-       onPress={() => router.push("/settings")}
+       onPress={() => router.push("/(tabs)/settings")}
       >
         <Text style={styles.buttonText}>Settings</Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.button}
-       onPress={() => router.push("/Privacy Policy")}
+       onPress={() => router.push("/user/Privacy Policy")}
       >
         <Text style={styles.buttonText}>Privacy Policy</Text>
       </TouchableOpacity>
