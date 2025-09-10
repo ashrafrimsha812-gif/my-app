@@ -1,9 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from "react-native";
 import { useRouter } from "expo-router";
-
+import { login, getDataById } from "../Helper/firebaseHelper";
+interface UserData {
+  id: string;
+  role: string;
+  email: string;
+  name?: string;
+}
 export default function App() {
   const router = useRouter();
+const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [userData, setUserData] = useState<UserData | null>(null);
+  const handleLoginPress = async () => {
+    try {
+      const user = await login(email, password);
+
+    
+      const fetchedUser = (await getDataById("users", user.uid)) as UserData | null;
+
+      if (!fetchedUser) {
+        alert("User data not found");
+        return;
+      }
+
+   
+      setUserData(fetchedUser);
+
+      if (fetchedUser.role === "doctor") {
+        router.replace("/doctor/dashboard" );
+      } else {
+        router.replace("/(tabs)/emoji" );
+      }
+    } catch (error: any) {
+      alert(error.message);
+    }
+  };
+
 
   return (
     <View style={styles.container}>
@@ -13,12 +47,16 @@ export default function App() {
         style={styles.input}
         placeholder="Enter email or phone no"
         placeholderTextColor="#999"
+         onChangeText={setEmail} 
+         value={email} 
       />
       <TextInput
         style={styles.input}
         placeholder="Password"
         secureTextEntry={true}
         placeholderTextColor="#999"
+         onChangeText={setPassword}
+          value={password}
       />
 
       <TouchableOpacity
@@ -40,7 +78,7 @@ export default function App() {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.loginButton}
-        onPress={() => router.push("/doctor/dashboard")}
+       onPress={handleLoginPress}
       >
         <Text style={styles.loginText}>Login</Text>
       </TouchableOpacity>
@@ -54,6 +92,7 @@ export default function App() {
           Signup now
         </Text>
       </Text>
+       {userData && <Text>Welcome {userData.name || userData.email}</Text>}
     </View>
   );
 }

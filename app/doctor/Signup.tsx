@@ -1,14 +1,22 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
 import { useRouter } from "expo-router";
+import { handleSignUp } from "../Helper/firebaseHelper";
 
 export default function SignupScreen() {
   const router = useRouter();
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-
+const handleSignupPress = async () => {
+    try {
+      await handleSignUp(email, password, { role: "doctor" }); // ✅ role fix "doctor"
+      alert("Signup successful!");
+      router.replace("/doctor/dashboard");
+    } catch (error:any) {
+      alert(error.message);
+    }
+  };
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Signup</Text>
@@ -38,15 +46,13 @@ export default function SignupScreen() {
         value={confirmPassword}
         onChangeText={setConfirmPassword}
       />
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => {
-          console.log("Signup pressed");
-           router.push("/doctor/dashboard");
-        }}
-      >
-        <Text style={styles.buttonText}>Signup</Text>
-      </TouchableOpacity>
+     <TouchableOpacity
+  style={styles.button}
+  onPress={handleSignupPress}  // 👈 direct function call
+>
+  <Text style={styles.buttonText}>Signup</Text>
+</TouchableOpacity>
+
       <TouchableOpacity onPress={() => router.push("/doctor/login")}>
         <Text style={styles.linkText}>Already have an account? Login</Text>
       </TouchableOpacity>

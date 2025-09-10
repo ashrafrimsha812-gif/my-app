@@ -1,9 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from "react-native";
 import { useRouter } from "expo-router";
+import { login, getDataById } from "../Helper/firebaseHelper";
+
+interface UserData {
+  id: string;
+  role: string;
+  email: string;
+  name?: string;
+}
 
 export default function App() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [userData, setUserData] = useState<UserData | null>(null);
   const router = useRouter();
+
+  const handleLoginPress = async () => {
+    try {
+      const user = await login(email, password);
+
+    
+      const fetchedUser = (await getDataById("users", user.uid)) as UserData | null;
+
+      if (!fetchedUser) {
+        alert("User data not found");
+        return;
+      }
+
+   
+      setUserData(fetchedUser);
+
+      if (fetchedUser.role === "doctor") {
+        router.replace("/doctor/dashboard" );
+      } else {
+        router.replace("/(tabs)/emoji" );
+      }
+    } catch (error: any) {
+      alert(error.message);
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -12,20 +48,24 @@ export default function App() {
       <TextInput
         style={styles.input}
         placeholder="Enter email or phone no"
+        onChangeText={setEmail}
+        value={email}
         placeholderTextColor="#999"
       />
       <TextInput
         style={styles.input}
         placeholder="Password"
+        onChangeText={setPassword}
+        value={password}
         secureTextEntry={true}
         placeholderTextColor="#999"
       />
 
       <TouchableOpacity
         style={styles.forgotBtn}
-        onPress={() => router.push("/user/ForgotPassword")}  
+        onPress={() => router.push("/user/ForgotPassword")}
       >
-        <Text style={{ color: "#c94f7c", fontWeight: "600",alignContent:"center",justifyContent:"center"  }}>Forgot Password?</Text>
+        <Text style={{ color: "#c94f7c", fontWeight: "600" }}>Forgot Password?</Text>
       </TouchableOpacity>
 
       <Text style={styles.orText}>──────────  or continue with  ──────────</Text>
@@ -35,25 +75,26 @@ export default function App() {
           source={require("../../assets/images/google.png")}
           style={{ width: 20, height: 20 }}
         />
-
         <Text style={styles.googleText}>Login with Google</Text>
       </TouchableOpacity>
+
       <TouchableOpacity
         style={styles.loginButton}
-        onPress={() => router.push("/emoji")}
+        // 👇 yahan handleLoginPress lagao
+        onPress={handleLoginPress}
       >
         <Text style={styles.loginText}>Login</Text>
       </TouchableOpacity>
 
       <Text style={styles.signupText}>
         Not a member?{" "}
-        <Text
-          style={styles.signupNow}
-          onPress={() => router.push("/user/signup")}
-        >
+        <Text style={styles.signupNow} onPress={() => router.push("/user/signup")}>
           Signup now
         </Text>
       </Text>
+
+      {/* 👇 ab ye userData properly kaam karega */}
+      {userData && <Text>Welcome {userData.name || userData.email}</Text>}
     </View>
   );
 }
@@ -99,11 +140,6 @@ const styles = StyleSheet.create({
     width: "100%",
     justifyContent: "center",
     marginBottom: 20,
-  },
-  googleIcon: {
-    width: 18,
-    height: 18,
-    marginRight: 8,
   },
   googleText: {
     fontSize: 14,

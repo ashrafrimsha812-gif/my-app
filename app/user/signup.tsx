@@ -1,10 +1,18 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
 import { useRouter } from "expo-router";
-
+import { handleSignUp } from "../Helper/firebaseHelper";
 export default function SignupScreen() {
   const router = useRouter();
-
+const handleSignupPress = async () => {
+    try {
+      await handleSignUp(email, password, { role: "user" }); // ✅ role fix "user"
+      alert("Signup successful!");
+      router.replace("/(tabs)/emoji");
+    } catch (error:any) {
+      alert(error.message);
+    }
+  };
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -40,11 +48,9 @@ export default function SignupScreen() {
       />
       <TouchableOpacity
         style={styles.button}
-        onPress={() => {
-          console.log("Signup pressed");
-           router.push("/emoji");
-        }}
+        onPress={handleSignupPress}  
       >
+        
         <Text style={styles.buttonText}>Signup</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => router.push("/user/login")}>
