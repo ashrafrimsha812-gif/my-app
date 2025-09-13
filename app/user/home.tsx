@@ -1,10 +1,19 @@
 import { View, Text, ImageBackground, TouchableOpacity } from 'react-native';
-import React from 'react';
 import { useRouter } from 'expo-router';
 import { useAuth } from '../context/AuthContext'; // 👈 Role ke liye
-
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import React, { useEffect } from "react";
 const Home = () => {
   const router = useRouter();
+   useEffect(() => {
+    const checkDisclaimer = async () => {
+      const accepted = await AsyncStorage.getItem("disclaimerAccepted");
+      if (!accepted) {
+        router.replace("/user/disclaimer"); // user ko disclaimer page pe bhejo
+      }
+    };
+    checkDisclaimer();
+  }, []);
   const { setRole } = useAuth(); // 👈 Context se role setter le liya
 
   const handleRole = (role: "user" | "doctor") => {

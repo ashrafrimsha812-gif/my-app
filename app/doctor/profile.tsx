@@ -5,8 +5,8 @@ import { useRouter } from "expo-router";
 import React, { useState } from "react";
 export default function DoctorProfile() {
   const router = useRouter();
-const [experience, setExperience] = useState("10+ years in Cardiology, Worked at City Hospital");
-const [about, setAbout] = useState("Dr. Ali Khan is a highly experienced cardiologist with expertise in heart-related diseases and patient care.");
+const [experience] = useState("10+ years in Cardiology, Worked at City Hospital");
+const [about] = useState("Dr. Ali Khan is a highly experienced cardiologist with expertise in heart-related diseases and patient care.");
 
   return (
     <View style={{ flex: 1, backgroundColor: "#fdecee" }}>
@@ -43,15 +43,16 @@ const [about, setAbout] = useState("Dr. Ali Khan is a highly experienced cardiol
 
         <View style={styles.card}>
           <Text style={styles.sectionTitle}>Experience</Text>
-          <Text style={styles.infoText}>10+ years in pshchology</Text>
+          <Text style={styles.infoText}>{experience}</Text>
           <Text style={styles.infoText}>Worked at City Hospital</Text>
         </View>
 
       
         <View style={styles.card}>
           <Text style={styles.sectionTitle}>About</Text>
+            
           <Text style={styles.infoText}>
-            Dr. Ali Khan is a highly experienced psychologist with expertise in brain-related diseases and patient care.
+               {about}
           </Text>
         </View>
 

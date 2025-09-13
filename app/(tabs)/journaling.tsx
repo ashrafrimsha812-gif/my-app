@@ -1,21 +1,37 @@
-
 import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  Image,
+  StyleSheet,
+  FlatList,
+} from "react-native";
 
 export default function JournalingScreen() {
   const [thoughts, setThoughts] = useState("");
+  const [entries, setEntries] = useState<string[]>([]); 
+
+  const handleSave = () => {
+    if (thoughts.trim() !== "") {
+      setEntries([...entries, thoughts]); 
+      setThoughts(""); 
+    }
+  };
 
   return (
     <View style={styles.container}>
-     
       <Text style={styles.title}>Journaling</Text>
+
       <View style={styles.card}>
         <Image
-          source={require("../../assets/images/profile.png")} 
+          source={require("../../assets/images/profile.png")}
           style={styles.profileImage}
         />
         <Text style={styles.name}>Ayesha</Text>
         <Text style={styles.date}>April 24, 2024</Text>
+
         <View style={styles.thoughtBox}>
           <Text style={styles.label}>Your Thoughts</Text>
           <TextInput
@@ -25,10 +41,21 @@ export default function JournalingScreen() {
             onChangeText={setThoughts}
             multiline
           />
-          <TouchableOpacity style={styles.saveBtn}>
+          <TouchableOpacity style={styles.saveBtn} onPress={handleSave}>
             <Text style={styles.saveText}>Save</Text>
           </TouchableOpacity>
         </View>
+
+       
+        <FlatList
+          data={entries}
+          keyExtractor={(item, index) => index.toString()}
+          renderItem={({ item }) => (
+            <View style={styles.entryItem}>
+              <Text style={styles.entryText}>{item}</Text>
+            </View>
+          )}
+        />
       </View>
     </View>
   );
@@ -80,7 +107,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     padding: 15,
     width: "100%",
-      height: "70%",
+    height: "35%",
   },
   label: {
     fontSize: 16,
@@ -103,11 +130,22 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderRadius: 10,
     alignItems: "center",
-    marginTop:150,
+    marginTop: 10,
   },
   saveText: {
     color: "white",
     fontWeight: "bold",
     fontSize: 16,
+  },
+  entryItem: {
+    backgroundColor: "#fff0f5",
+    padding: 10,
+    borderRadius: 8,
+    marginTop: 10,
+    width: "100%",
+  },
+  entryText: {
+    fontSize: 14,
+    color: "#444",
   },
 });
